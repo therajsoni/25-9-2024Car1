@@ -1,43 +1,52 @@
-/* Slider.css */
+/* Slider container */
+.slider-container {
+  width: 100%;
+  position: relative; /* Relative positioning for label alignment */
+  display: flex;
+  flex-direction: column;
+}
 
+/* Labels under the slider */
+.slider-labels {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Adds space between labels and slider */
+}
+
+.slider-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 12px;
+  top: 20px;
+}
+
+/* Slider */
 .slider {
-    width: 100%;
-    height: 20px; /* Adjust height as needed */
-    /* margin-left: 2rem; */
-    /* margin-right: 2rem; */
-    margin-top: 9px;
-  }
+  height: 20px;
+}
 
-/*  span{
-    margin-top: -4px;
-    display: flex;
-    margin-left: 2rem; */
-    /* margin-right: 2rem;
-    flex-direction: row;
-    justify-content: space-around;
-  } */
-  
-  .track {
-    background: black; /* Background color of the track */
-    height: 5px; /* Height of the track */
-    border-radius: 5px; /* Rounded edges for the track */
-  }
-  
-  .thumb {
-    box-sizing: content-box;
-    height: 19px; /* Height of the thumb */
-    width: 19px; /* Width of the thumb */
-    background: black; /* Color of the thumb */
-    border: 2px solid blue; 
-    /* Border around the thumb */
-    border-radius: 50%; /* Make the thumb circular */
-    cursor: pointer; /* Change cursor to pointer */
-    margin-top: -9px; /* Align thumb with track */
-  }
-  
-  .thumb:hover {
-    background: black; /* Change color on hover */
-  }
-  
+/* Track styling */
+.track {
+  background: black;
+  height: 5px;
+  border-radius: 5px;
+}
 
-  
+/* Thumb styling */
+.thumb {
+  box-sizing: content-box;
+  height: 19px;
+  width: 19px;
+  background: black;
+  border: 2px solid blue;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -9px;
+}
+
+/* Thumb hover effect */
+.thumb:hover {
+  background: black;
+}
