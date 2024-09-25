@@ -1,12 +1,8 @@
 
 
 .slider {
-    width: 100%;
-    height: 20px; /* Adjust height as needed */
-    /* margin-left: 2rem; */
-    /* margin-right: 2rem; */
-    margin-top: 9px;
-  }
+  height: 20px;
+}
 
 /*  span{
     margin-top: -4px;

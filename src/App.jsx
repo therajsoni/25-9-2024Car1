@@ -15,6 +15,8 @@ import Testimonial from "./components/Testimonial/Testimonial";
 import Footer from "./components/Footer/Footer";
 import FilterBoxDetails from "./Filter/FilterBoxDetails";
 import Dialog from "./pages/model";
+import Login from "./components/Authnetication/Login";
+import PhoneInput from "./Flow";
 
 const App = () => {
   // dark mode start
@@ -57,6 +59,7 @@ const App = () => {
           <>
          <Hero theme={theme} /> 
          <CarList theme={theme}/>
+        {/* <PhoneInput/> */}
           </>
         }
         >      
@@ -70,6 +73,12 @@ const App = () => {
 <Route
 path="/model"
 element={<Dialog/>}
+/>
+
+<Route
+path="/login"
+element={<Login/>}
+
 />
 
       </Routes>  

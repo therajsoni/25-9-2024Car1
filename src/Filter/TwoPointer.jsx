@@ -39,6 +39,7 @@ import { BioContext } from '../context';
 const CombinedSlider = ({ handlePriceChange, value, setValue }) => {
   const [values, setValues] = useState([0, 1000000]);
   const { filters, setFilters, login, setLogin, isOpen, setIsOpen } = useContext(BioContext);
+  const { filters, setFilters, login, setLogin, isOpen, setIsOpen } = useContext(BioContext);
 
   // Marks for the slider from 0 to 10 Lakhs
   const marks = [
