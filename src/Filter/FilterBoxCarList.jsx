@@ -190,11 +190,23 @@ const FilterBoxCarList = ({theme}) => {
             <option>2T-5T</option>
             <option>10T</option>
         </select> */}
-              <div className="rounded-md  flex flex-row justify-between items-center bg-primary hover:bg-primary/80 transition duration-500 py-2 px-12 text-black aos-init aos-animate col-span-2">
+
+
+              {/* <div className="rounded-md  flex flex-row justify-between items-center bg-primary hover:bg-primary/80 transition duration-500 py-2 px-12 text-black aos-init aos-animate col-span-2"> */}
     {/* <input type="range" className="w-[96%] " min={0} max={1000000} onChange={handleRangeChange} value={rangeValue} />
-    <span className='ml-2 flex justify-center items-center'>{<FaIndianRupeeSign />}{rangeValue}</span> */}
-    <TwoPointerInput handlePriceChange={handlePriceChange} value={value} setValue={setValue} />
-  </div>
+   
+   
+   <span className='ml-2 flex justify-center items-center'>{<FaIndianRupeeSign />}{rangeValue}</span> */}
+   
+   
+    {/* <TwoPointerInput handlePriceChange={handlePriceChange} value={value} setValue={setValue} />
+  </div> */}
+
+
+
+<div className="rounded-md flex flex-row justify-between items-center bg-primary hover:bg-primary/80 transition duration-500 py-2 px-12 text-black aos-init aos-animate col-span-2">
+        <TwoPointerInput handlePriceChange={handlePriceChange} value={value} setValue={setValue} />
+      </div>
 
     </div>
 </div>

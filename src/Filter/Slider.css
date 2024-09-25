@@ -1,4 +1,4 @@
-/* Slider.css */
+
 
 .slider {
     width: 100%;
@@ -18,25 +18,24 @@
   } */
   
   .track {
-    background: black; /* Background color of the track */
+    background: green; /* Background color of the track */
     height: 5px; /* Height of the track */
     border-radius: 5px; /* Rounded edges for the track */
   }
   
   .thumb {
     box-sizing: content-box;
-    height: 19px; /* Height of the thumb */
-    width: 19px; /* Width of the thumb */
-    background: black; /* Color of the thumb */
-    border: 2px solid blue; 
-    /* Border around the thumb */
-    border-radius: 50%; /* Make the thumb circular */
-    cursor: pointer; /* Change cursor to pointer */
-    margin-top: -9px; /* Align thumb with track */
+    height: 19px; 
+    width: 19px; 
+    background: black; 
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer; 
+    margin-top: -9px; 
   }
   
   .thumb:hover {
-    background: black; /* Change color on hover */
+    background: black;
   }
   
 
