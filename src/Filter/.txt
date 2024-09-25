@@ -1,0 +1,150 @@
+import React, { useEffect, useState, useContext } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { CgSelectO } from "react-icons/cg";
+import { FaFilter } from "react-icons/fa";
+import { BioContext } from '../context';
+import { FaIndianRupeeSign } from "react-icons/fa6";
+
+import whiteCar from "../assets/white-car.png";
+import car2 from "../assets/car5.png";
+import car3 from "../assets/car6.png";
+
+const FilterBoxDetails = () => {
+    const { filters, setFilters, login, setLogin, isOpen, setIsOpen } = useContext(BioContext);
+
+    const [text, setText] = useState('Details');
+    const [selectedCar, setSelectedCar] = useState(null); // New state to hold selected car
+
+    const handlefilterChange = (e, filterType) => {
+        setFilters({
+            ...filters,
+            [filterType]: e.target.value,
+        });
+    };
+
+    const toggleDialog = () => {
+        !login ? setIsOpen(!isOpen) : setIsOpen(false);
+    };
+
+    const handleToChange = (car) => {
+        if (login) {
+            setText(car); // Set the text to the clicked car's name
+        } else {
+            setIsOpen(true); // Open dialog if not logged in
+        }
+        setSelectedCar(car); // Set the selected car
+    };
+
+    const carList = [
+        { name: "BMW UX", price: 100, image: whiteCar, aosDelay: "0" },
+        { name: "BMW UX", price: 100, image: whiteCar, aosDelay: "0" },
+        { name: "KIA UX", price: 140, image: car2, aosDelay: "500" },
+        // Add more cars as needed
+    ];
+
+    const [rangeValue, setRangeValue] = useState(0);
+
+    const handleRangeChange = (e) => {
+        const value = Number(e.target.value);
+        let newValue = value;
+
+        // Logic for range value adjustment
+        if (value < 100000) newValue = 100000;
+        else if (value < 200000) newValue = 200000;
+        else if (value < 300000) newValue = 300000;
+        else if (value < 400000) newValue = 400000;
+        else if (value < 500000) newValue = 500000;
+        else if (value < 600000) newValue = 600000;
+        else if (value < 700000) newValue = 700000;
+        else if (value < 800000) newValue = 800000;
+        else if (value < 900000) newValue = 900000;
+        else if (value < 1000000) newValue = 1000000;
+
+        setRangeValue(newValue);
+    };
+
+    return (
+        <div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 max-w-4xl mx-auto my-16">
+                <select 
+                    value={filters.price}
+                    onChange={(e) => handlefilterChange(e, 'price')}
+                    className="rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-black"
+                >
+                    <option value={""} selected disabled className="font-bold text-dark">Price</option>
+                    <option value={""}>none</option>
+                    <option>50T-1L</option>
+                    <option>1L-5L</option>
+                    <option>5L-10L</option>
+                    <option>10L-13L</option>
+                </select>
+                {/* Add other filter selects here... */}
+                <div className="rounded-md flex flex-row justify-between 
+                items-center bg-primary hover:bg-primary/80 transition duration-500 py-2 px-12 text-black col-span-2">
+                    <input 
+                        type="range" 
+                        className="w-[96%]" 
+                        min={0} 
+                        max={1000000} 
+                        onChange={handleRangeChange} 
+                        value={rangeValue} 
+                    />
+                    <span className='ml-2 flex justify-center items-center'>
+                        <FaIndianRupeeSign />{rangeValue}
+                    </span>
+                </div>
+            </div>
+
+            <div className='mx-8'>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
+                    {carList.map((data) => (
+                        <div
+                            key={data.name} // Add key for list items
+                            data-aos="fade-up"
+                            data-aos-delay={data.aosDelay}
+                            className="space-y-4 border-2 border-gray-300 hover:border-primary p-3 rounded-xl relative group"
+                        >
+                            <div className="w-full h-[120px]">
+                                <img
+                                    src={data.image}
+                                    alt={data.name}
+                                    className="w-full h-[120px] object-contain sm:translate-x-8 group-hover:sm:translate-x-16 duration-700"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <h1 className="text-primary font-semibold">{data.name}</h1>
+                                <div className="flex justify-around items-center text-xl font-semibold">
+                                    <p>${data.price}/Day</p>
+                                    <button onClick={() => { handleToChange(data); toggleDialog(); }}>
+                                        {login ? text : "Details"}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="relative">
+                {isOpen && (
+                    <div className="fixed inset-0 flex justify-end items-center bg-black bg-opacity-50 z-50">
+                        <div className="bg-white h-full w-full sm:w-1/4 md:w-1/4 transition-transform transform translate-x-0">
+                            <div className="p-4">
+                                <h2 className="text-lg font-bold">Dialog Title</h2>
+                                <p className="mt-2">This is a sample dialog content.</p>
+                                <button
+                                    onClick={toggleDialog}
+                                    className="mt-4 px-4 py-2 text-white bg-red-600 rounded"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default FilterBoxDetails;
